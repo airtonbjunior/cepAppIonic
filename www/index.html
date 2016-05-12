@@ -30,10 +30,12 @@
       <ion-content ng-controller="webServerCtrl">
           <label class="item item-input">
             <span class="input-label">CEP</span>
-            <input type="number" ng-model="number">
+            <input type="text" ng-model="number">
           </label>       
           <button class="button button-block button-positive" ng-click="getData(number);">Buscar</button>
-          <div class="list card " ng-hide="isHidden" ng-show="myValue">
+          
+          <!-- Answer DIV if success -->
+          <div class="list card" ng-hide="isHidden">
 
             <a href="#" class="item item-icon-left">
               <i class="icon ion-ios-location"></i>
@@ -54,8 +56,13 @@
               <i class="icon ion-ios-email"></i>
               {{ cep }}
             </a>
-
           </div>
+          
+          <!-- Answer DIV if error (not found) -->
+          <div class="list card" ng-hide="isHiddenError">
+            <div class="item item-icon-left"><i class="icon ion-close-circled"></i><h2>Não encontrado!<h2></div>
+          </div>
+
       </ion-content>
     </ion-pane>
   </body>
